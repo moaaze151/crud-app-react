@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { useState } from "react";
+import "./App.css";
+import Form from "./component/Form/index";
+import List from "./component/List/index";
 function App() {
+  const [course, setCourse] = useState([
+    { id: 1, active: false, name: "Html" },
+    { id: 2, active: false, name: "Css" },
+    { id: 3, active: false, name: "Sass" },
+    { id: 4, active: false, name: "Bootstrap" },
+    { id: 5, active: false, name: "Js" },
+  ]);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <section className="App">
+      <div className="content">
+        <h2 className="title">Add Courses</h2>
+        <Form course={course} setCourse={setCourse} />
+        <List course={course} setCourse={setCourse} />
+      </div>
+    </section>
   );
 }
 
